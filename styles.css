@@ -1,0 +1,60 @@
+/* 1. THE BODY (The Screen Container) */
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f4f7f6; /* Light background to help the card pop */
+  
+  /* Flexbox settings to keep everything centered on the screen */
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;     /* Vertical centering */
+  min-height: 100vh;       /* Makes body full screen height */
+}
+
+/* 2. THE CARD (The Main Component) */
+.card {
+  background-color: #bbdefb;
+  color: #0d47a1;
+  border-bottom: 6px solid #0d47a1;
+  padding: 22px;
+  margin: 20px;            /* Prevents card from touching screen edges */
+  
+  /* Layout inside the card */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+
+  /* Responsiveness */
+  width: 100%;             /* Allow it to take available space... */
+  max-width: 400px;        /* ...but stop it at 400px wide */
+  box-sizing: border-box;  /* Includes padding in the width calculation */
+}
+
+/* 3. THE PIC (The Image) */
+.pic {
+  width: 150px;
+  height: auto;            /* Maintains aspect ratio */
+  border-radius: 4px;      /* Optional: matches the clean look in image_846f3d.png */
+}
+
+/* 4. THE MOBILE FIX (For Small Screens) */
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column; /* Stacks photo on top of text for better balance */
+    padding: 30px 15px;     /* Adjusts padding for a vertical look */
+  }
+
+  .pic {
+    margin-bottom: 15px;    /* Adds space between the photo and the name */
+  }
+}
+
+/* MISC STYLES */
+.font-size {
+  font-size: 14px;
+}
+
+.dot-blue {
+  border: dotted 1px blue;
+}
