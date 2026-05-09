@@ -2,59 +2,62 @@
 body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #f4f7f6; /* Light background to help the card pop */
+  background-color: #f4f7f6; 
   
-  /* Flexbox settings to keep everything centered on the screen */
+  /* Keeps the card centered on the page */
   display: flex;
-  justify-content: center; /* Horizontal centering */
-  align-items: center;     /* Vertical centering */
-  min-height: 100vh;       /* Makes body full screen height */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: auto; /* Adds a scrollbar if the screen is too narrow */
 }
 
-/* 2. THE CARD (The Main Component) */
+/* 2. THE CARD (Locked Horizontal with extra Padding) */
 .card {
   background-color: #bbdefb;
   color: #0d47a1;
-  border-bottom: 6px solid #0d47a1;
-  padding: 22px;
-  margin: 20px;            /* Prevents card from touching screen edges */
+  border-bottom: 8px solid #0d47a1;
   
-  /* Layout inside the card */
+  /* UPDATED PADDING: 30px top/bottom, 50px left/right for that extra space */
+  padding: 30px 50px; 
+  margin: 20px;
+  
+  /* Fixed horizontal layout */
   display: flex;
-  justify-content: space-around;
+  flex-direction: row; 
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
-  text-align: center;
+  gap: 40px; /* Space between the image and the text */
 
-  /* Responsiveness */
-  width: 100%;             /* Allow it to take available space... */
-  max-width: 400px;        /* ...but stop it at 400px wide */
-  box-sizing: border-box;  /* Includes padding in the width calculation */
+  /* Dimensions */
+  width: 600px;           /* Slightly wider to accommodate the new padding */
+  min-width: 600px;       /* Keeps it from shrinking */
+  box-sizing: border-box; /* Ensures padding doesn't break the width */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* 3. THE PIC (The Image) */
 .pic {
-  width: 150px;
-  height: auto;            /* Maintains aspect ratio */
-  border-radius: 4px;      /* Optional: matches the clean look in image_846f3d.png */
+  width: 180px; 
+  flex-shrink: 0; 
+  height: auto;
+  border-radius: 12px;
 }
 
-/* 4. THE MOBILE FIX (For Small Screens) */
-@media (max-width: 480px) {
-  .card {
-    flex-direction: column; /* Stacks photo on top of text for better balance */
-    padding: 30px 15px;     /* Adjusts padding for a vertical look */
-  }
-
-  .pic {
-    margin-bottom: 15px;    /* Adds space between the photo and the name */
-  }
+/* 4. TEXT STYLING (Locked Left) */
+.card-info {
+  text-align: left;
+  flex-shrink: 0;
 }
 
-/* MISC STYLES */
-.font-size {
-  font-size: 14px;
+.card-info h2 {
+  margin: 0 0 15px 0;
+  font-size: 32px;
+  white-space: nowrap;
 }
 
-.dot-blue {
-  border: dotted 1px blue;
+.card-info p {
+  margin: 8px 0;
+  font-size: 18px;
 }
